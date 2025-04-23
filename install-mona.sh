@@ -1,12 +1,6 @@
 #!/bin/bash
 
-# Start Updog in the background on port 8080
-echo "[*] Starting Updog..."
-python3 -m updog &
-UPDOG_PID=$!
-echo "[+] Updog started with PID $UPDOG_PID"
-
-TOOLS=("https://github.com/corelan/windbglib/raw/master/pykd/pykd.zip" "https://github.com/corelan/windbglib/raw/master/windbglib.py" "https://github.com/corelan/mona/raw/master/mona.py" "https://www.python.org/ftp/python/2.7.17/python-2.7.17.msi" "https://download.microsoft.com/download/2/E/6/2E61CFA4-993B-4DD4-91DA-3737CD5CD6E3/vcredist_x86.exe" "http://localhost:9090/install-mona.ps1" "https://github.com/lololosys/windbg-theme/raw/refs/heads/master/dark.wew")
+TOOLS=("https://github.com/corelan/windbglib/raw/master/pykd/pykd.zip" "https://github.com/corelan/windbglib/raw/master/windbglib.py" "https://github.com/corelan/mona/raw/master/mona.py" "https://www.python.org/ftp/python/2.7.17/python-2.7.17.msi" "https://download.microsoft.com/download/2/E/6/2E61CFA4-993B-4DD4-91DA-3737CD5CD6E3/vcredist_x86.exe" "https://github.com/h0rcrux-9/OSED-Tools/blob/main/install-mona.ps1" "https://github.com/lololosys/windbg-theme/raw/refs/heads/master/dark.wew")
 
 TMPDIR=$(mktemp -d)
 SHARENAME="mona-share"
@@ -27,10 +21,5 @@ for tool in "${TOOLS[@]}"; do
 done
 
 unzip -qqo pykd.zip
-
-# Kill Updog
-echo "[*] Killing Updog..."
-kill "$UPDOG_PID"
-wait "$UPDOG_PID" 2>/dev/null
 
 rdesktop ${1} -u Administrator -p lab -r disk:$SHARENAME=.
