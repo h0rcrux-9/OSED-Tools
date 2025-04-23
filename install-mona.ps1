@@ -19,6 +19,7 @@ Catch {
 # Copy the WinDBG theme to the install dir
 echo "[+] Copying the Windbg workspace file"
 copy "$share_path\dark.wew" "$install_dir"
+copy "$share_path\windbg_dark.bat" "$install_dir"
 Start-Sleep -Seconds 5
 
 # Install old C++ runtime
