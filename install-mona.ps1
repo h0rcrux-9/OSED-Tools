@@ -1,6 +1,7 @@
 # Define the share path. Note the use of single quotes and a doubled trailing backslash to ensure the literal backslash is preserved.
 $share_path = '\\tsclient\mona-share\\'
 $install_dir = "C:\Users\Administrator\Desktop\install-mona"
+$desktop_dir = "C:\Users\Administrator\Desktop"
 
 echo "[+] Creating installation directory: $install_dir"
 mkdir "$install_dir"
@@ -19,7 +20,13 @@ Catch {
 # Copy the WinDBG theme to the install dir
 echo "[+] Copying the Windbg workspace file"
 copy "$share_path\dark.wew" "$install_dir"
-copy "$share_path\windbg_dark.bat" "$install_dir"
+#copy "$share_path\windbg_dark.bat" "$install_dir"
+copy "$share_path\windbg_dark.bat" "$desktop_dir"
+
+$s = (New-Object -COM WScript.Shell).CreateShortcut("$desktop_dir\Tools.lnk");
+$s.TargetPath = 'C:\Tools';
+$s.Save();
+
 Start-Sleep -Seconds 5
 
 # Install old C++ runtime
