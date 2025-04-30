@@ -22,6 +22,7 @@ echo "[+] Copying the Windbg workspace file"
 copy "$share_path\dark.wew" "$install_dir"
 #copy "$share_path\windbg_dark.bat" "$install_dir"
 copy "$share_path\windbg_dark.bat" "$desktop_dir"
+copy "$share_path\procexp.bat" "$desktop_dir"
 
 $s = (New-Object -COM WScript.Shell).CreateShortcut("$desktop_dir\Tools.lnk");
 $s.TargetPath = 'C:\Tools';
