@@ -1,0 +1,56 @@
+(Clean) Deref gadgets [0]
+=========================
+
+(Clean) Swap gadgets [1]
+========================
+0x55101f22 | xchg esp, esi ; ret  ;
+
+(Clean) Move gadgets [4]
+========================
+0x55102496 | mov eax, ecx ; ret  ;
+0x55101f87 | mov ecx, esi ; ret  ;
+0x55101fcd | mov esp, eax ; ret  ;
+0x55101faf | mov esp, eax ; ret  ;
+
+(Clean) Add gadgets [2]
+=======================
+0x55101f35 | add eax, ecx ; ret  ;
+0x55101f42 | add ecx, eax ; ret  ;
+
+(Clean) Sub gadgets [0]
+=======================
+
+(Clean) Pop gadgets [14]
+========================
+0x55101f9c | pop eax ; ret  ;
+0x55102872 | pop ebx ; ret  ;
+0x55102846 | pop ebx ; ret  ;
+0x55101fa2 | pop ebx ; retn 0x0004 ;
+0x55101f28 | pop ecx ; ret  ;
+0x5510215d | pop ecx ; ret  ;
+0x55102298 | pop ecx ; ret  ;
+0x55102096 | pop edi ; retn 0x0010 ;
+0x55101fa8 | pop edx ; retn 0x0008 ;
+0x5510235b | pop esi ; ret  ;
+0x5510235f | pop esi ; ret  ;
+0x551025d2 | pop esi ; ret  ;
+0x55101f78 | pop esp ; ret  ;
+0x55101fd2 | pop esp ; retn 0x0008 ;
+
+(Clean) Neg gadgets [0]
+=======================
+
+(Clean) Inc gadgets [1]
+=======================
+0x551025d9 | inc eax ; ret  ;
+
+(Clean) Dec gadgets [1]
+=======================
+0x55102bfe | dec ecx ; ret  ;
+
+(Clean) Write gadgets [0]
+=========================
+
+Get ESP gadgets [0]
+===================
+
